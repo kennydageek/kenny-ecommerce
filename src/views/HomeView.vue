@@ -2,15 +2,15 @@
   <div>
     <header class="header">
       <navigation />
-
       <div class="header-content">
         <h1 class="heading__primary">
           The Art of <br />
           Slaying
         </h1>
         <p class="header__text">
-          Do you need clothes and accessories that look cheaply expensive and
-          comfortable at the same time? Then you are at the right place
+          Do you need clothes and accessories that look cheaply<br />expensive
+          and comfortable at the same time? Then<br />
+          you are at the right place
         </p>
         <kcbutton />
       </div>
@@ -67,5 +67,21 @@ export default {
   font-size: 1.8rem;
   color: #faf9fa;
   margin-bottom: 4rem;
+}
+
+.nav-list__links:hover {
+  color: #4ca2e4;
+}
+
+@media only screen and (min-width: 769.99px) {
+  .header-content {
+    padding: 0 15rem;
+  }
+}
+
+@media only screen and (min-width: 1050.99px) {
+  .header-blob {
+    display: block !important;
+  }
 }
 </style>
