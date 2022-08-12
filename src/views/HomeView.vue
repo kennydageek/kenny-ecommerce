@@ -10,7 +10,7 @@
         </h1>
         <p class="header__text">
           Do you need clothes and accessories that look cheaply expensive and
-          comfortable at thesame time? Then you are in the right place
+          comfortable at the same time? Then you are at the right place
         </p>
         <kcbutton />
       </div>

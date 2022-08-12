@@ -21,6 +21,24 @@ const routes = [
     name: 'categories',
     component: () => import('../views/CategoriesView.vue'),
   },
+
+  {
+    path: '/shop-men',
+    name: 'shop-men',
+    component: () => import('../views/ShopMenView.vue'),
+  },
+
+  {
+    path: '/shop-women',
+    name: 'shop-women',
+    component: () => import('../views/ShopWomenView.vue'),
+  },
+
+  {
+    path: '/jewelleries',
+    name: 'jewelleries',
+    component: () => import('../views/JewelleriesView.vue'),
+  },
 ];
 
 const router = new VueRouter({

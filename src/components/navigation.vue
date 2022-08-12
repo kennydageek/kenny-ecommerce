@@ -5,7 +5,33 @@
         <i class="fa-solid fa-bars"></i>
       </div>
 
-      <router-link :to="{ name: 'home' }">
+      <ul class="nav-list hidden">
+        <li class="nav-list-item">
+          <router-link class="nav-list__links" :to="{ name: 'categories' }"
+            >Categories</router-link
+          >
+        </li>
+
+        <li class="nav-list-item">
+          <router-link class="nav-list__links" :to="{ name: 'shop-men' }"
+            >Shop Men</router-link
+          >
+        </li>
+
+        <li class="nav-list-item">
+          <router-link class="nav-list__links" :to="{ name: 'shop-women' }"
+            >Shop Women</router-link
+          >
+        </li>
+
+        <li class="nav-list-item">
+          <router-link class="nav-list__links" :to="{ name: 'jewelleries' }"
+            >Jewelleries</router-link
+          >
+        </li>
+      </ul>
+
+      <router-link class="nav-list__links" :to="{ name: 'home' }">
         <div class="nav-logo">
           <img
             src="https://cdn.shopify.com/s/files/1/2337/2329/files/Organic_Savanna_logo_-_homepage_2_125x.png?v=1616758509"
@@ -91,5 +117,42 @@ export default {
   font-size: 1.4rem;
   top: -4.1rem;
   left: 1.5rem;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  /* background: red; */
+  width: 40rem;
+}
+
+.nav-list-item {
+}
+
+.nav-list__links {
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-list__links:hover {
+  color: #4ca2e4;
+}
+
+@media only screen and (min-width: 769.99px) {
+  .navigation {
+    padding: 1.5rem 15rem;
+  }
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex !important;
+  }
 }
 </style>
