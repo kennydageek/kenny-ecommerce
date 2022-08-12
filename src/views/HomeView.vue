@@ -19,8 +19,13 @@
     <section class="section-customer-fav">
       <h1 class="section-heading">Customer Favorites</h1>
       <div class="section-wrapper">
-        <productcard />
+        <productcard
+          v-for="product in products"
+          :key="product.id"
+          :product="product"
+        />
       </div>
+      <kcbuttonsec class="section__btn">View All Products</kcbuttonsec>
     </section>
   </div>
 </template>
@@ -28,12 +33,15 @@
 <script>
 import navigation from '@/components/navigation';
 import kcbutton from '@/components/kcbutton';
+import kcbuttonsec from '@/components/kcbuttonsec';
 import productcard from '@/components/productcard';
 import axios from 'axios';
+
 export default {
   components: {
     navigation,
     kcbutton,
+    kcbuttonsec,
     productcard,
   },
 
@@ -45,9 +53,11 @@ export default {
 
   created() {
     axios
-      .get('https://fakestoreapi.com/products')
+      .get('https://fakestoreapi.com/products?limit=3')
       .then((res) => {
-        console.log(res.data);
+        this.products = res.data;
+
+        console.log(this.products);
       })
       .catch((error) => {
         console.log('There was an error:' + error.response);
@@ -103,7 +113,7 @@ export default {
 .section-customer-fav {
   min-height: 30rem;
   /* background: red; */
-  padding: 5rem 3rem 10rem 3rem;
+  padding: 5rem 3rem;
 }
 
 .section-heading {
@@ -111,11 +121,27 @@ export default {
   font-family: montserrat, sans-serif;
   text-transform: uppercase;
   font-weight: 500;
+  margin-bottom: 4rem;
+}
+
+.section-wrapper {
+  /* background: red; */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.section__btn {
+  margin-top: 3rem;
 }
 
 @media only screen and (min-width: 769.99px) {
   .header-content {
     padding: 0 15rem;
+  }
+
+  .section-wrapper {
+    justify-content: center;
   }
 }
 

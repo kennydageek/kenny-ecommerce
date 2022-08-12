@@ -1,24 +1,30 @@
 <template>
   <div class="product-card">
-    <h1 class="product__title">School bag</h1>
     <div class="product-image">
       <img
-        src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+        :src="product.image"
         alt="product image"
         class="product-image__image"
       />
     </div>
+    <h1 class="product__title">{{ product.title }}</h1>
 
-    <p class="product__price">$10</p>
+    <p class="product__price">${{ product.price }}</p>
 
-    <button>Add to Cart</button>
+    <kcbuttonsec>Add to Cart</kcbuttonsec>
   </div>
 </template>
 
 <script>
+import kcbuttonsec from '@/components/kcbuttonsec';
 export default {
   name: 'product-card',
-  components: {},
+  props: {
+    product: Object,
+  },
+  components: {
+    kcbuttonsec,
+  },
 };
 </script>
 
@@ -27,10 +33,8 @@ export default {
   box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.7);
   padding: 2rem;
   width: 30rem;
-  /* height: 20rem; */
-}
-
-.product-category {
+  margin-top: 2rem;
+  margin-right: 2rem;
 }
 
 .product-image {
@@ -54,6 +58,9 @@ export default {
 .product__price {
   text-align: center;
   margin: 2rem 0;
+  font-size: 3.2rem;
+  font-weight: 300;
+  font-family: quicksand, sans-serif;
 }
 
 button {
