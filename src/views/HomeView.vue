@@ -15,16 +15,43 @@
         <kcbutton />
       </div>
     </header>
+
+    <section class="section-customer-fav">
+      <h1 class="section-heading">Customer Favorites</h1>
+      <div class="section-wrapper">
+        <productcard />
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
 import navigation from '@/components/navigation';
 import kcbutton from '@/components/kcbutton';
+import productcard from '@/components/productcard';
+import axios from 'axios';
 export default {
   components: {
     navigation,
     kcbutton,
+    productcard,
+  },
+
+  data() {
+    return {
+      products: [],
+    };
+  },
+
+  created() {
+    axios
+      .get('https://fakestoreapi.com/products')
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log('There was an error:' + error.response);
+      });
   },
 };
 </script>
@@ -71,6 +98,19 @@ export default {
 
 .nav-list__links:hover {
   color: #4ca2e4;
+}
+
+.section-customer-fav {
+  min-height: 30rem;
+  /* background: red; */
+  padding: 5rem 3rem 10rem 3rem;
+}
+
+.section-heading {
+  text-align: center;
+  font-family: montserrat, sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 @media only screen and (min-width: 769.99px) {
