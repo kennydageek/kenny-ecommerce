@@ -17,12 +17,12 @@
     </header>
 
     <section class="section-customer-fav">
-      <h1 class="section-heading">Customer Favorites</h1>
+      <h1 class="section-heading">Organic Savanna Products</h1>
       <div class="section-wrapper">
         <productcard
-          v-for="product in products"
-          :key="product.id"
-          :product="product"
+          v-for="choice in customerChoice"
+          :key="choice.id"
+          :choice="choice"
           class="productcard"
         />
       </div>
@@ -35,11 +35,27 @@
     <section class="section-parallax">
       <kcparallax />
     </section>
+
+    <section class="section-customer-fav">
+      <h1 class="section-heading">Organic Savanna Products</h1>
+      <div class="section-wrapper">
+        <productcard
+          v-for="product in products"
+          :key="product.id"
+          :choice="product"
+          class="productcard"
+        />
+      </div>
+
+      <router-link :to="{ name: 'products' }" class="btn__cta">
+        <kcbuttonsec class="section__btn">View All Products</kcbuttonsec>
+      </router-link>
+    </section>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import productservice from '@/services/productservice.js';
 import navigation from '@/components/navigation';
 import kcbutton from '@/components/kcbutton';
 import kcbuttonsec from '@/components/kcbuttonsec';
@@ -58,15 +74,26 @@ export default {
   data() {
     return {
       products: [],
+      customerChoice: [],
     };
   },
 
   created() {
-    axios
-      .get('https://fakestoreapi.com/products?limit=4')
+    productservice
+      .getCustomerChoice()
+      .then((res) => {
+        this.customerChoice = res.data;
+
+        console.log(this.customerChoice);
+      })
+      .catch((error) => {
+        console.log('There was an error:' + error.response);
+      });
+
+    productservice
+      .getProducts()
       .then((res) => {
         this.products = res.data;
-
         console.log(this.products);
       })
       .catch((error) => {

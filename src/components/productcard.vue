@@ -2,14 +2,14 @@
   <div class="product-card">
     <div class="product-image">
       <img
-        :src="product.image"
+        :src="choice.image"
         alt="product image"
         class="product-image__image"
       />
     </div>
-    <h1 class="product__title">{{ product.title }}</h1>
+    <h1 class="product__title">{{ choice.title }}</h1>
 
-    <p class="product__price">${{ product.price }}</p>
+    <p class="product__price">${{ choice.price }}</p>
 
     <kcbuttonsec class="btn">Add to Cart</kcbuttonsec>
   </div>
@@ -20,7 +20,7 @@ import kcbuttonsec from '@/components/kcbuttonsec';
 export default {
   name: 'product-card',
   props: {
-    product: Object,
+    choice: Object,
   },
   components: {
     kcbuttonsec,
