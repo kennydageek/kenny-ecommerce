@@ -17,7 +17,7 @@
     </header>
 
     <section class="section-customer-fav">
-      <h1 class="section-heading">Organic Savanna Products</h1>
+      <h1 class="section-heading">Customer Favorites</h1>
       <div class="section-wrapper">
         <productcard
           v-for="choice in customerChoice"
@@ -37,7 +37,7 @@
     </section>
 
     <section class="section-customer-fav">
-      <h1 class="section-heading">Organic Savanna Products</h1>
+      <h1 class="section-heading">KenCommerce Products</h1>
       <div class="section-wrapper">
         <productcard
           v-for="product in products"
@@ -51,6 +51,8 @@
         <kcbuttonsec class="section__btn">View All Products</kcbuttonsec>
       </router-link>
     </section>
+
+    <kcfooter />
   </div>
 </template>
 
@@ -61,6 +63,7 @@ import kcbutton from '@/components/kcbutton';
 import kcbuttonsec from '@/components/kcbuttonsec';
 import productcard from '@/components/productcard';
 import kcparallax from '@/components/kcparallax';
+import kcfooter from '@/components/footer.vue';
 
 export default {
   components: {
@@ -69,6 +72,7 @@ export default {
     kcbuttonsec,
     productcard,
     kcparallax,
+    kcfooter,
   },
 
   data() {

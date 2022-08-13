@@ -7,12 +7,6 @@
 
       <ul class="nav-list hidden">
         <li class="nav-list-item">
-          <router-link class="nav-list__links" :to="{ name: 'categories' }"
-            >Categories</router-link
-          >
-        </li>
-
-        <li class="nav-list-item">
           <router-link class="nav-list__links" :to="{ name: 'shop-men' }"
             >Shop Men</router-link
           >
@@ -90,8 +84,8 @@ export default {
 .nav-cart {
   display: flex;
   /* position: relative; */
-  justify-content: space-between;
-  width: 6rem;
+  justify-content: center;
+  width: 10rem;
   font-size: 2.4rem;
   color: black;
 }
@@ -102,6 +96,7 @@ export default {
 
 .nav-cart-user {
   cursor: pointer;
+  margin-right: 2rem;
 }
 
 .nav-cart-number {
@@ -124,7 +119,7 @@ export default {
   justify-content: space-between;
   list-style: none;
   /* background: red; */
-  width: 40rem;
+  width: 30rem;
 }
 
 .nav-list-item {
