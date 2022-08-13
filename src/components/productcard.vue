@@ -31,6 +31,10 @@ export default {
 </script>
 
 <style scoped>
+a {
+  text-decoration: none;
+}
+
 .product-card {
   position: relative;
   box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.7);
