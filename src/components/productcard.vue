@@ -1,18 +1,20 @@
 <template>
-  <div class="product-card">
-    <div class="product-image">
-      <img
-        :src="choice.image"
-        alt="product image"
-        class="product-image__image"
-      />
+  <router-link :to="{ name: 'product', params: { id: choice.id } }">
+    <div class="product-card">
+      <div class="product-image">
+        <img
+          :src="choice.image"
+          alt="product image"
+          class="product-image__image"
+        />
+      </div>
+      <h1 class="product__title">{{ choice.title }}</h1>
+
+      <p class="product__price">${{ choice.price }}</p>
+
+      <kcbuttonsec class="btn">Add to Cart</kcbuttonsec>
     </div>
-    <h1 class="product__title">{{ choice.title }}</h1>
-
-    <p class="product__price">${{ choice.price }}</p>
-
-    <kcbuttonsec class="btn">Add to Cart</kcbuttonsec>
-  </div>
+  </router-link>
 </template>
 
 <script>

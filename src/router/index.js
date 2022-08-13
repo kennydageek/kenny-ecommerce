@@ -39,6 +39,13 @@ const routes = [
     name: 'jewelleries',
     component: () => import('../views/JewelleriesView.vue'),
   },
+
+  {
+    path: '/product/:id',
+    name: 'product',
+    props: true,
+    component: () => import('../views/ProductPage.vue'),
+  },
 ];
 
 const router = new VueRouter({
