@@ -59,6 +59,6 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   padding: 0 3rem;
-  margin-bottom: 2rem;
+  margin-bottom: 8rem;
 }
 </style>

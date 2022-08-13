@@ -21,4 +21,16 @@ export default {
   getAllProducts() {
     return apiClient.get('/products');
   },
+
+  getMen() {
+    return apiClient.get(`/products/category/men's%20clothing`);
+  },
+
+  getWomen() {
+    return apiClient.get(`/products/category/women's%20clothing`);
+  },
+
+  getJewellery() {
+    return apiClient.get(`/products/category/jewelery`);
+  },
 };
