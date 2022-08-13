@@ -32,7 +32,9 @@
       </router-link>
     </section>
 
-    <kcparallax />
+    <section class="section-parallax">
+      <kcparallax />
+    </section>
   </div>
 </template>
 
@@ -149,6 +151,19 @@ export default {
 
 .btn__cta {
   text-decoration: none;
+}
+
+.section-parallax {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30rem;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../../public/images/philanthropy.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  padding: 6rem 0;
 }
 
 @media only screen and (min-width: 769.99px) {
