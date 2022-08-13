@@ -17,4 +17,8 @@ export default {
   getCustomerChoice() {
     return apiClient.get('/products?limit=4');
   },
+
+  getAllProducts() {
+    return apiClient.get('/products');
+  },
 };
