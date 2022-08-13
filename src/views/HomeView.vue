@@ -23,19 +23,26 @@
           v-for="product in products"
           :key="product.id"
           :product="product"
+          class="productcard"
         />
       </div>
-      <kcbuttonsec class="section__btn">View All Products</kcbuttonsec>
+
+      <router-link :to="{ name: 'products' }" class="btn__cta">
+        <kcbuttonsec class="section__btn">View All Products</kcbuttonsec>
+      </router-link>
     </section>
+
+    <kcparallax />
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import navigation from '@/components/navigation';
 import kcbutton from '@/components/kcbutton';
 import kcbuttonsec from '@/components/kcbuttonsec';
 import productcard from '@/components/productcard';
-import axios from 'axios';
+import kcparallax from '@/components/kcparallax';
 
 export default {
   components: {
@@ -43,6 +50,7 @@ export default {
     kcbutton,
     kcbuttonsec,
     productcard,
+    kcparallax,
   },
 
   data() {
@@ -53,7 +61,7 @@ export default {
 
   created() {
     axios
-      .get('https://fakestoreapi.com/products?limit=3')
+      .get('https://fakestoreapi.com/products?limit=4')
       .then((res) => {
         this.products = res.data;
 
@@ -131,8 +139,16 @@ export default {
   flex-wrap: wrap;
 }
 
+.productcard {
+  align-self: center;
+}
+
 .section__btn {
   margin-top: 3rem;
+}
+
+.btn__cta {
+  text-decoration: none;
 }
 
 @media only screen and (min-width: 769.99px) {
