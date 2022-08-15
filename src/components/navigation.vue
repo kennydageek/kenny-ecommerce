@@ -39,7 +39,7 @@
           <i class="fa-solid fa-user"></i>
         </div>
         <div class="nav-cart-cart">
-          <i class="fa-solid fa-bag-shopping"></i>
+          <i class="fa-solid fa-bag-shopping" @click="openCart()"></i>
 
           <div class="nav-cart-number">
             <p class="nav-cart-number__number">0</p>
@@ -53,10 +53,22 @@
 <script>
 export default {
   name: 'navigation-comp',
+
+  methods: {
+    openCart() {
+      let cart = document.querySelector('.cart');
+      cart.classList.remove('hidden');
+      // console.log('red');
+    },
+  },
 };
 </script>
 
 <style scoped>
+.hidden {
+  display: none;
+}
+
 .navigation {
   display: flex;
   justify-content: space-between;

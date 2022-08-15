@@ -2,7 +2,7 @@
   <div>
     <header class="header">
       <navigation />
-      <cart class="cart" />
+      <cart class="cart hidden" />
       <div class="header-content">
         <h1 class="heading__primary">
           The Art of <br />
@@ -85,6 +85,13 @@ export default {
     };
   },
 
+  methods: {
+    openCart() {
+      let cart = document.querySelector('cart');
+      cart.classList.remove('hidden');
+    },
+  },
+
   created() {
     productservice
       .getCustomerChoice()
@@ -111,6 +118,10 @@ export default {
 </script>
 
 <style scoped>
+.hidden {
+  display: none;
+}
+
 .header {
   position: relative;
   width: 100%;

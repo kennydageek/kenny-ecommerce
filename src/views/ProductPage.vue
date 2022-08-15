@@ -1,6 +1,7 @@
 <template>
   <div>
     <navigation class="nav" />
+    <cart class="cart hidden" />
     <div class="product-container">
       <div class="product-image">
         <img :src="product.image" alt="" class="product-image__image" />
@@ -27,12 +28,14 @@ import productservice from '@/services/productservice.js';
 import navigation from '@/components/navigation';
 import kcfooter from '@/components/footer';
 import kcparallax from '@/components/kcparallax';
+import cart from '@/components/cart';
 // import kcbutton from '@/components/kcbutton';
 export default {
   components: {
     navigation,
     kcfooter,
     kcparallax,
+    cart,
     // kcbutton,
   },
   props: ['id'],
@@ -51,6 +54,12 @@ export default {
 </script>
 
 <style scoped>
+.cart {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
 .nav {
   /* margin-bottom: 8rem; */
 }

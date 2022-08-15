@@ -1,6 +1,8 @@
 <template>
   <div class="cart">
-    <p class="cancel"><i class="fa-solid fa-xmark"></i></p>
+    <p class="cancel" @click="cancelCart()">
+      <i class="fa-solid fa-xmark"></i>
+    </p>
     <div class="heading">
       <p class="cart__heading">Your Cart</p>
       <p class="clear__cart">Clear Cart</p>
@@ -16,10 +18,21 @@
 <script>
 export default {
   name: 'kc-cart',
+
+  methods: {
+    cancelCart() {
+      let cancel = document.querySelector('.cart');
+      cancel.classList.add('hidden');
+      console.log('kenny');
+    },
+  },
 };
 </script>
 
 <style scoped>
+.hidden {
+  display: none !important;
+}
 .cart {
   width: 50%;
   padding: 3rem;
@@ -47,6 +60,7 @@ export default {
 
 .clear__cart {
   font-weight: 600;
+  cursor: pointer;
 }
 
 .cart__text {

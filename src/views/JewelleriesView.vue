@@ -1,6 +1,7 @@
 <template>
   <div>
     <navigation class="nav" />
+    <cart class="cart" />
     <h1 class="heading__primary">Jewellery Collection</h1>
 
     <section class="section-product">
@@ -20,12 +21,14 @@ import productservice from '@/services/productservice.js';
 import navigation from '@/components/navigation';
 import productcard from '@/components/productcard';
 import footercomp from '@/components/footer';
+import cart from '@/components/cart';
 export default {
   name: 'all-products',
   components: {
     navigation,
     productcard,
     footercomp,
+    cart,
   },
 
   data() {
@@ -43,6 +46,16 @@ export default {
 </script>
 
 <style scoped>
+.cart {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.hidden {
+  display: none;
+}
 .nav {
   margin-bottom: 3rem;
 }
