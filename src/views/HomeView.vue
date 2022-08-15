@@ -2,6 +2,7 @@
   <div>
     <header class="header">
       <navigation />
+      <cart class="cart" />
       <div class="header-content">
         <h1 class="heading__primary">
           The Art of <br />
@@ -63,7 +64,8 @@ import kcbutton from '@/components/kcbutton';
 import kcbuttonsec from '@/components/kcbuttonsec';
 import productcard from '@/components/productcard';
 import kcparallax from '@/components/kcparallax';
-import kcfooter from '@/components/footer.vue';
+import kcfooter from '@/components/footer';
+import cart from '@/components/cart';
 
 export default {
   components: {
@@ -73,6 +75,7 @@ export default {
     productcard,
     kcparallax,
     kcfooter,
+    cart,
   },
 
   data() {
@@ -151,6 +154,12 @@ export default {
   color: #4ca2e4;
 }
 
+.cart {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
 .section-customer-fav {
   min-height: 30rem;
   /* background: red; */
