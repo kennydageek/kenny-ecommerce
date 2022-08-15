@@ -8,6 +8,7 @@
       <p class="clear__cart">Clear Cart</p>
     </div>
 
+    <cartCard class="cart-card" />
     <p class="cart__text">Your cart is empty</p>
     <p class="cart__total">Total: $0.00</p>
 
@@ -16,8 +17,12 @@
 </template>
 
 <script>
+import cartCard from '@/components/cartCard';
 export default {
   name: 'kc-cart',
+  components: {
+    cartCard,
+  },
 
   methods: {
     cancelCart() {
@@ -63,8 +68,12 @@ export default {
   cursor: pointer;
 }
 
+.cart-card {
+  margin: 3rem auto;
+}
+
 .cart__text {
-  margin-top: 10rem;
+  margin-top: 3rem;
   text-align: center;
   margin-bottom: 3rem;
 }
