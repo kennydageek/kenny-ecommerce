@@ -42,7 +42,7 @@
           <i class="fa-solid fa-bag-shopping" @click="openCart()"></i>
 
           <div class="nav-cart-number">
-            <p class="nav-cart-number__number">0</p>
+            <p class="nav-cart-number__number">{{ cartLength }}</p>
           </div>
         </div>
       </div>
@@ -51,8 +51,15 @@
 </template>
 
 <script>
+// import { mapGetters } from 'vuex';
 export default {
   name: 'navigation-comp',
+
+  computed: {
+    cartLength() {
+      return this.$store.getters.cartLength;
+    },
+  },
 
   methods: {
     openCart() {

@@ -1,12 +1,18 @@
 <template>
   <div>
-    <button><slot>View All Products</slot></button>
+    <button @click="addToCart"><slot>View All Products</slot></button>
   </div>
 </template>
 
 <script>
 export default {
   name: 'kc-button-sec',
+
+  methods: {
+    addToCart() {
+      console.log('Kenny');
+    },
+  },
 };
 </script>
 

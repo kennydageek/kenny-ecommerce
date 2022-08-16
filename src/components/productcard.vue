@@ -1,6 +1,6 @@
 <template>
-  <router-link :to="{ name: 'product', params: { id: choice.id } }">
-    <div class="product-card">
+  <div class="product-card">
+    <router-link :to="`/product/${choice.id}`">
       <div class="product-image">
         <img
           :src="choice.image"
@@ -11,21 +11,28 @@
       <h1 class="product__title">{{ choice.title }}</h1>
 
       <p class="product__price">${{ choice.price }}</p>
-
-      <kcbuttonsec class="btn">Add to Cart</kcbuttonsec>
-    </div>
-  </router-link>
+    </router-link>
+    <button class="btn" @click="addToCart">Add to Cart</button>
+  </div>
 </template>
 
 <script>
-import kcbuttonsec from '@/components/kcbuttonsec';
+// import kcbuttonsec from '@/components/kcbuttonsec';
 export default {
   name: 'product-card',
   props: {
     choice: Object,
   },
+
   components: {
-    kcbuttonsec,
+    // kcbuttonsec,
+  },
+
+  methods: {
+    addToCart() {
+      this.$store.dispatch('addToCart', this.choice);
+      console.log('Kenny');
+    },
   },
 };
 </script>
@@ -77,6 +84,7 @@ a {
 .btn {
   position: relative;
   bottom: 0;
+  z-index: 100;
   /* left: 50%;
   transform: translateX(-50%); */
 }
