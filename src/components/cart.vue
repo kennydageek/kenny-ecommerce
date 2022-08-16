@@ -8,7 +8,9 @@
       <p class="clear__cart">Clear Cart</p>
     </div>
 
-    <cartCard class="cart-card" />
+    <cartCard class="cart-card" v-for="cart in cart" :key="cart.id">{{
+      cart
+    }}</cartCard>
     <p class="cart__text">Your cart is empty</p>
     <p class="cart__total">Total: $0.00</p>
 
@@ -18,10 +20,16 @@
 
 <script>
 import cartCard from '@/components/cartCard';
+import { mapState, mapGetters } from 'vuex';
 export default {
   name: 'kc-cart',
   components: {
     cartCard,
+  },
+
+  computed: {
+    ...mapState(['cart']),
+    ...mapGetters(['cartLength']),
   },
 
   methods: {

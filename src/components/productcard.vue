@@ -30,8 +30,8 @@ export default {
 
   methods: {
     addToCart() {
-      this.$store.dispatch('addToCart', this.choice);
-      console.log('Kenny');
+      this.$store.dispatch('addToCart', this.choice.id);
+      console.log(this.$store.state.cart);
     },
   },
 };
@@ -84,7 +84,7 @@ a {
 .btn {
   position: relative;
   bottom: 0;
-  z-index: 100;
+  /* z-index; */
   /* left: 50%;
   transform: translateX(-50%); */
 }

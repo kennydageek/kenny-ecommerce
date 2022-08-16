@@ -4,7 +4,7 @@
       <div class="img-container">
         <img src="#" alt="" class="img-container__img" />
       </div>
-      <p class="container__title">Mens Cotton Jacket</p>
+      <p class="container__title">men's casual slim fit</p>
       <p class="delete"><i class="fa-solid fa-trash"></i></p>
     </div>
 
@@ -23,8 +23,15 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from 'vuex';
+
 export default {
   name: 'cart-card',
+
+  computed: {
+    ...mapState(['cart']),
+    ...mapGetters(['cartLength']),
+  },
 };
 </script>
 
