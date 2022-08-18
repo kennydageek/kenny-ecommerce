@@ -30,8 +30,8 @@ export default {
 
   methods: {
     addToCart() {
-      this.$store.dispatch('addToCart', this.choice.id);
-      console.log(this.$store.state.cart);
+      this.$store.dispatch('addToCart', this.choice);
+      // this.$store.dispatch('addToUniqueCart', this.choice);
     },
   },
 };

@@ -7,10 +7,10 @@
       <p class="cart__heading">Your Cart</p>
       <p class="clear__cart">Clear Cart</p>
     </div>
+    <div v-for="(item, index) in cart" :key="index">
+      <cartCard class="cart-card" :item="item" />
+    </div>
 
-    <cartCard class="cart-card" v-for="cart in cart" :key="cart.id">{{
-      cart
-    }}</cartCard>
     <p class="cart__text">Your cart is empty</p>
     <p class="cart__total">Total: $0.00</p>
 
@@ -28,8 +28,8 @@ export default {
   },
 
   computed: {
-    ...mapState(['cart']),
-    ...mapGetters(['cartLength']),
+    ...mapState(['cart', 'uniqueCart']),
+    ...mapGetters(['cartLength', 'getUniqueCart']),
   },
 
   methods: {
@@ -51,6 +51,7 @@ export default {
   padding: 3rem;
   height: 100vh;
   background: white;
+  overflow: auto;
 }
 
 .cancel {

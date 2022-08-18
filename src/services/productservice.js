@@ -37,4 +37,8 @@ export default {
   getJewellery() {
     return apiClient.get(`/products/category/jewelery`);
   },
+
+  getProductByLimit(lim) {
+    return apiClient.get(`/products?limit=${lim}`);
+  },
 };

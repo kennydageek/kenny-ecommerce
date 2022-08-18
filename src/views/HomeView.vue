@@ -17,7 +17,7 @@
       </div>
     </header>
 
-    <section class="section-customer-fav">
+    <section v-if="customerChoice" class="section-customer-fav">
       <h1 class="section-heading">Customer Favorites</h1>
       <div class="section-wrapper">
         <productcard
@@ -41,7 +41,7 @@
       <h1 class="section-heading">KenCommerce Products</h1>
       <div class="section-wrapper">
         <productcard
-          v-for="product in products"
+          v-for="product in limitedProducts"
           :key="product.id"
           :choice="product"
           class="productcard"
@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import productservice from '@/services/productservice.js';
+// import productservice from '@/services/productservice.js';
 import navigation from '@/components/navigation';
 import kcbutton from '@/components/kcbutton';
 import kcbuttonsec from '@/components/kcbuttonsec';
@@ -66,6 +66,7 @@ import productcard from '@/components/productcard';
 import kcparallax from '@/components/kcparallax';
 import kcfooter from '@/components/footer';
 import cart from '@/components/cart';
+import { mapState } from 'vuex';
 
 export default {
   components: {
@@ -81,7 +82,7 @@ export default {
   data() {
     return {
       products: [],
-      customerChoice: [],
+      // customerChoice: [],
     };
   },
 
@@ -93,26 +94,22 @@ export default {
   },
 
   created() {
-    productservice
-      .getCustomerChoice()
-      .then((res) => {
-        this.customerChoice = res.data;
+    this.$store.dispatch('fetchChoice');
+    this.$store.dispatch('fetchProducts', 8);
 
-        console.log(this.customerChoice);
-      })
-      .catch((error) => {
-        console.log('There was an error:' + error.response);
-      });
+    // productservice
+    //   .getProducts()
+    //   .then((res) => {
+    //     this.products = res.data;
+    //     console.log(this.products);
+    //   })
+    //   .catch((error) => {
+    //     console.log('There was an error:' + error.response);
+    //   });
+  },
 
-    productservice
-      .getProducts()
-      .then((res) => {
-        this.products = res.data;
-        console.log(this.products);
-      })
-      .catch((error) => {
-        console.log('There was an error:' + error.response);
-      });
+  computed: {
+    ...mapState(['customerChoice', 'limitedProducts']),
   },
 };
 </script>
