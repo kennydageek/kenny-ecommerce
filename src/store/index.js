@@ -11,6 +11,7 @@ export default new Vuex.Store({
     limitedProducts: [],
     cart: [],
     uniqueCart: [],
+    total: [],
   },
   getters: {
     cartLength: (state) => {
@@ -55,6 +56,17 @@ export default new Vuex.Store({
 
     CLEAR_CART(state) {
       state.cart = [];
+    },
+
+    INCREASE_QTY(state, product) {
+      state.cart.find((cur) => cur.id === product.id).qty++;
+
+      console.log(state.cart);
+      console.log(state.total);
+    },
+
+    DECREASE_QTY(state, product) {
+      state.cart.find((cur) => cur.id === product.id).qty--;
     },
 
     SAVE_LIMITED_PRODUCTS(state, products) {
@@ -102,6 +114,14 @@ export default new Vuex.Store({
 
     clearCart({ commit }) {
       commit('CLEAR_CART');
+    },
+
+    increaseQty({ commit }, products) {
+      commit('INCREASE_QTY', products);
+    },
+
+    decreaseQty({ commit }, products) {
+      commit('DECREASE_QTY', products);
     },
   },
   modules: {},

@@ -51,12 +51,12 @@ export default {
     //   console.log('adams');
     // },
     decreaseQuantity() {
-      this.quantity--;
+      this.$store.dispatch('decreaseQty', this.item);
     },
 
     increaseQuantity() {
       this.$store.dispatch('addToCart', this.item);
-      console.log(this.item);
+      this.$store.dispatch('increaseQty', this.item);
       console.log(this.$store.state.cart);
     },
 
