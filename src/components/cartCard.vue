@@ -7,7 +7,9 @@
       <p class="container__title">
         {{ item.title }}
       </p>
-      <p class="delete"><i class="fa-solid fa-trash"></i></p>
+      <p class="delete" @click="deleteCard">
+        <i class="fa-solid fa-trash"></i>
+      </p>
     </div>
 
     <div class="quantity-price">
@@ -56,6 +58,10 @@ export default {
       this.$store.dispatch('addToCart', this.item);
       console.log(this.item);
       console.log(this.$store.state.cart);
+    },
+
+    deleteCard() {
+      this.$store.dispatch('deleteCard', this.item);
     },
   },
 

@@ -44,6 +44,15 @@ export default new Vuex.Store({
       state.cart = unique;
     },
 
+    DELETE_CARD(state, product) {
+      console.log(state);
+      console.log(product);
+
+      state.cart = state.cart.filter((cur) => {
+        return cur.id != product.id;
+      });
+    },
+
     CLEAR_CART(state) {
       state.cart = [];
     },
@@ -85,6 +94,10 @@ export default new Vuex.Store({
         image: product.image,
       };
       commit('ADD_TO_CART', obj);
+    },
+
+    deleteCard({ commit }, product) {
+      commit('DELETE_CARD', product);
     },
 
     clearCart({ commit }) {
