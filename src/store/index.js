@@ -44,6 +44,10 @@ export default new Vuex.Store({
       state.cart = unique;
     },
 
+    CLEAR_CART(state) {
+      state.cart = [];
+    },
+
     SAVE_LIMITED_PRODUCTS(state, products) {
       state.limitedProducts = products;
     },
@@ -81,6 +85,10 @@ export default new Vuex.Store({
         image: product.image,
       };
       commit('ADD_TO_CART', obj);
+    },
+
+    clearCart({ commit }) {
+      commit('CLEAR_CART');
     },
   },
   modules: {},

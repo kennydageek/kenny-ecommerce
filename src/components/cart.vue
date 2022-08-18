@@ -5,7 +5,7 @@
     </p>
     <div class="heading">
       <p class="cart__heading">Your Cart</p>
-      <p class="clear__cart">Clear Cart</p>
+      <p class="clear__cart" @click="clearCart">Clear Cart</p>
     </div>
     <div v-for="(item, index) in cart" :key="index">
       <cartCard class="cart-card" :item="item" />
@@ -37,6 +37,10 @@ export default {
       let cancel = document.querySelector('.cart');
       cancel.classList.add('hidden');
       console.log('kenny');
+    },
+
+    clearCart() {
+      this.$store.dispatch('clearCart');
     },
   },
 };
