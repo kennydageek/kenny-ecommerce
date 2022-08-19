@@ -1,7 +1,8 @@
 <template>
   <div>
     <nav class="navigation">
-      <div class="nav-menu">
+      <mobileNav class="nav hidden" />
+      <div class="nav-menu" @click="openNav()">
         <i class="fa-solid fa-bars"></i>
       </div>
 
@@ -52,8 +53,14 @@
 
 <script>
 // import { mapGetters } from 'vuex';
+import mobileNav from '@/components/MobileNav';
+import MobileNav from './MobileNav.vue';
 export default {
+  components: { MobileNav },
   name: 'navigation-comp',
+  component: {
+    mobileNav,
+  },
 
   computed: {
     cartLength() {
@@ -66,6 +73,11 @@ export default {
       let cart = document.querySelector('.cart');
       cart.classList.remove('hidden');
       // console.log('red');
+    },
+
+    openNav() {
+      let nav = document.querySelector('.nav');
+      nav.classList.remove('hidden');
     },
   },
 };
