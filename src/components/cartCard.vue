@@ -46,10 +46,6 @@ export default {
   },
 
   methods: {
-    // increaseQuantity() {
-    //   this.quantity++;
-    //   console.log('adams');
-    // },
     decreaseQuantity() {
       this.$store.dispatch('decreaseQty', this.item);
     },
@@ -57,7 +53,6 @@ export default {
     increaseQuantity() {
       this.$store.dispatch('addToCart', this.item);
       this.$store.dispatch('increaseQty', this.item);
-      console.log(this.$store.state.cart);
     },
 
     deleteCard() {

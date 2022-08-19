@@ -12,7 +12,7 @@
     </div>
 
     <p class="cart__text">Your cart is empty</p>
-    <p class="cart__total">Total: $0.00</p>
+    <p class="cart__total">Total: ${{ getTotal }}</p>
 
     <a href="#" class="checkout">Checkout</a>
   </div>
@@ -28,8 +28,8 @@ export default {
   },
 
   computed: {
-    ...mapState(['cart', 'uniqueCart']),
-    ...mapGetters(['cartLength', 'getUniqueCart']),
+    ...mapState(['cart', 'uniqueCart', 'total']),
+    ...mapGetters(['cartLength', 'getUniqueCart', 'getTotal']),
   },
 
   methods: {

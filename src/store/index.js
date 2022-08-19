@@ -11,7 +11,7 @@ export default new Vuex.Store({
     limitedProducts: [],
     cart: [],
     uniqueCart: [],
-    total: [],
+    total: 0,
   },
   getters: {
     cartLength: (state) => {
@@ -22,11 +22,23 @@ export default new Vuex.Store({
         return cur.id === id;
       });
     },
+
+    getTotal(state) {
+      let total = 0;
+      state.cart.forEach((cur) => {
+        total += cur.total();
+        console.log(total);
+      });
+
+      return (total = total.toFixed(2));
+      // ('UPDATE_TOTAL', total);
+    },
   },
   mutations: {
     SAVE_CHOICE(state, products) {
       state.customerChoice = products;
     },
+
     ADD_TO_CART(state, product) {
       console.log(state.cart);
       state.cart.push(product);
@@ -62,15 +74,21 @@ export default new Vuex.Store({
       state.cart.find((cur) => cur.id === product.id).qty++;
 
       console.log(state.cart);
-      console.log(state.total);
+      // console.log(total);
     },
 
     DECREASE_QTY(state, product) {
+      // if (state.cart.length === 0) return;
+      if (product.qty === 1) return;
       state.cart.find((cur) => cur.id === product.id).qty--;
     },
 
     SAVE_LIMITED_PRODUCTS(state, products) {
       state.limitedProducts = products;
+    },
+
+    UPDATE_TOTAL(state, total) {
+      state.total = total;
     },
   },
   actions: {
@@ -104,6 +122,9 @@ export default new Vuex.Store({
         title: product.title,
         price: product.price,
         image: product.image,
+        total() {
+          return this.price * this.qty;
+        },
       };
       commit('ADD_TO_CART', obj);
     },
