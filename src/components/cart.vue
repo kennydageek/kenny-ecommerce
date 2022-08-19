@@ -79,6 +79,12 @@ export default {
 .clear__cart {
   font-weight: 600;
   cursor: pointer;
+  color: #4ca2e4;
+  transition: all 0.2s ease-in-out;
+}
+
+.clear__cart:hover {
+  color: black;
 }
 
 .cart-card {
