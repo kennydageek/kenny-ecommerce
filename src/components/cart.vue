@@ -11,7 +11,7 @@
       <cartCard class="cart-card" :item="item" />
     </div>
 
-    <p class="cart__text">Your cart is empty</p>
+    <p class="cart__text" v-if="cart.length === 0">Your cart is empty</p>
     <p class="cart__total">Total: ${{ getTotal }}</p>
 
     <a href="#" class="checkout">Checkout</a>

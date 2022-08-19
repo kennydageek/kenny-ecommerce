@@ -96,16 +96,6 @@ export default {
   created() {
     this.$store.dispatch('fetchChoice');
     this.$store.dispatch('fetchProducts', 8);
-
-    // productservice
-    //   .getProducts()
-    //   .then((res) => {
-    //     this.products = res.data;
-    //     console.log(this.products);
-    //   })
-    //   .catch((error) => {
-    //     console.log('There was an error:' + error.response);
-    //   });
   },
 
   computed: {

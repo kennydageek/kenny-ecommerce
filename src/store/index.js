@@ -144,6 +144,20 @@ export default new Vuex.Store({
     decreaseQty({ commit }, products) {
       commit('DECREASE_QTY', products);
     },
+
+    inCart: ({ state }, id) => {
+      let foundCart = state.cart.find((cur) => {
+        return cur.id === id;
+      });
+
+      if (foundCart) {
+        alert('Already in cart');
+        return true;
+      } else {
+        // console.log(false);
+        return false;
+      }
+    },
   },
   modules: {},
 });

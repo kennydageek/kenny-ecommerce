@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 // import kcbuttonsec from '@/components/kcbuttonsec';
 export default {
   name: 'product-card',
@@ -24,13 +25,28 @@ export default {
     choice: Object,
   },
 
-  components: {
-    // kcbuttonsec,
+  components: {},
+
+  computed: {
+    ...mapState(['cart']),
   },
 
   methods: {
+    // ...mapActions(['inCart']),
     addToCart() {
-      this.$store.dispatch('addToCart', this.choice);
+      // console.log(this.cart);
+      // console.log(this.choice.id);
+      const inCart = this.cart.find((cur) => {
+        return this.choice.id === cur.id;
+      });
+
+      if (inCart) {
+        alert('Product already in Cart');
+      } else {
+        this.$store.dispatch('addToCart', this.choice);
+      }
+
+      // console.log('button clicked');
       // this.$store.dispatch('addToUniqueCart', this.choice);
     },
   },
@@ -101,6 +117,11 @@ button {
   margin: 0 auto;
   transition: all 0.2s ease-in-out;
 }
+
+/* button[disabled] {
+  cursor: progress;
+  background: #ccc;
+} */
 
 button:hover {
   background-color: transparent;
